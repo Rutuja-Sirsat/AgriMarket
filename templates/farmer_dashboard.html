@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(129, 180, 156); 
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #b2d8b2; 
+            bottom: 50%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d6a2d; 
+        }
+
+        .option-card {
+            border: 2px solid #85b685; 
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            background-color: #f5fff5; /* Very light green background for card */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .option-card:hover {
+            background-color: #d9f2d9; /* Slightly darker green on hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
+        }
+
+        a {
+            text-decoration: none;
+            color: #337733; /* Darker green link */
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a:hover {
+            color: #255925; /* Even darker green on hover */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h2>Farmer Dashboard</h2>
+
+    <div class="option-card">
+        <h3>Add a Product</h3>
+        <p>If you want to add new products, you can do so here.</p>
+        <a href="/add_product">Go to Add Product</a>
+    </div>
+
+    <div class="option-card">
+        <h3>View My Products</h3>
+        <p>See all the products you've added, and manage them here.</p>
+        <a href="/my_products">Go to View Products</a>
+    </div>
+<!-- 
+    <div class="option-card">
+        <h3>Update Product</h3>
+        <p>You can update the quantity and price of your existing products.</p>
+        <a href="/my_products">Go to Update Products</a>
+    </div> -->
+    
+</div>
+
+</body>
+</html>

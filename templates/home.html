@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - AgriMarket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            
+        }
+        header {
+            background-color: rgb(7, 132, 78);
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Place the image behind other elements */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(10, 83, 45);
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-card img {
+            max-width: 100px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .product-card .details {
+            flex-grow: 1;
+        }
+        .product-card h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        .product-card p {
+            margin: 5px 0;
+            color: #7f8c8d;
+        }
+        .product-card .price {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .product-card button {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background-color: #27ae60;
+        }
+        section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.66);
+            border-radius: 10px;
+            margin: 20px;
+            color: white;
+            position: relative; /* Adjust section position */
+            z-index: 1; /* Ensure section appears above the image */
+        }
+    </style>
+</head>
+<body>
+
+    
+    <!-- Header Section -->
+    <header>
+        <h1>AgriMarket</h1>
+        <p>Buy Fresh Products Directly from Farmers</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="/homepage">Home</a>
+        <a href="/products">Products</a>
+        <a href="/about">About Us</a>
+        <!-- <a href="#">Contact</a> -->
+    </nav>
+
+    <!-- Main Content Section -->
+    <img src="https://as1.ftcdn.net/v2/jpg/01/47/51/44/1000_F_147514468_gkJz7zqqFFAaTCuOXHP7rhKV3bJfKIcq.jpg">
+
+    <section>
+        <h2 style="color: black;">Welcome to AgriMarket</h2>
+        <p style="color: black;">
+            Here you can browse through various products and can buy fresh products directly from farmers. 
+            <br>Thank you! Happy Shopping! :><br> 
+        </p>
+    </section>
+
+</body>
+</html>

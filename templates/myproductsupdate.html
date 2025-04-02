@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2e6; /* Light green background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #b2d8b2; /* Border color */
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d6a2d; /* Dark green title */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #b2d8b2; /* Light green border */
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #d9f2d9; /* Light green header */
+            color: #2d6a2d;
+        }
+
+        td {
+            background-color: #f5fff5; /* Very light green for cells */
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #337733; /* Dark green buttons */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background-color: #255925; /* Darker green on hover */
+        }
+
+        .delete-btn {
+            background-color: #cc0000; /* Red delete button */
+        }
+
+        .delete-btn:hover {
+            background-color: #990000; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>My Products</h2>
+
+    {% if products %}
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>
+                    <!-- Update Button -->
+                    <a href="{{ url_for('edit_product', product_id=product.product_id) }}">
+                        <button class="action-btn">Update</button>
+                    </a>
+
+                    <!-- Delete Button -->
+                    <form action="{{ url_for('delete_product', product_id=product.product_id) }}" method="POST" style="display:inline-block;">
+                        <button type="submit" class="action-btn delete-btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No products found. Add some products!</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

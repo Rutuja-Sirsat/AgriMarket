@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriMarket - Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4e2; /* Light greenish background */
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff; /* White card background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .button-container h1 {
+            color: #2c6e49; /* Dark green heading */
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            height: 45px;
+            margin-top: 15px;
+            border: none;
+            background-color: #2c6e49; /* Dark green button */
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e5035; /* Darker green on hover */
+        }
+
+        .description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="button-container">
+        <h1>Welcome to AgriMarket</h1>
+        <p class="description">Connecting Farmers & Customers Directly</p>
+        <button type="button" onclick="location.href='/farmer_signup'">Farmer</button>
+        <button type="button" onclick="location.href='/user_signup'">Customer</button>
+    </div>
+    
+</body>
+</html>

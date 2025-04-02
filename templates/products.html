@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - AgriMarket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: rgb(7, 132, 78);
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .view button{
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            padding: 10px 20px;
+            background-color: white;
+            color: rgb(10, 83, 45);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 84%;
+            bottom: 87%;
+            position: absolute;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(10, 83, 45);
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-card img {
+            max-width: 100px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .product-card .details {
+            flex-grow: 1;
+        }
+        .product-card h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        .product-card p {
+            margin: 5px 0;
+            color: #7f8c8d;
+        }
+        .product-card .price {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .product-card button {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-card button:hover {
+            background-color: #27ae60;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header >
+        <h1>AgriMarket</h1>
+        <p>Buy Fresh Products Directly from Farmers</p>
+        <a href="/view_cart" class="view">
+            <button type="button">View Cart</button>
+        </a>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="{{ url_for('homepage') }}">Home</a>
+        <a href="{{ url_for('products') }}">Products</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <!-- <a href="#">Contact</a> -->
+
+        
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Loop through the products dynamically -->
+        {% for product in products %}
+        <div class="product-card">
+            
+            <div class="details">
+                <h3>{{ product.product_name }}</h3>
+                <p>Category: {{ product.category }}</p>
+                <p class="price">₹{{ product.price }} per kg</p>
+                <p>Quantity Available: {{ product.quantity }} kg</p>
+            </div>
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <input type="hidden" name="product_id" value="{{ product.product_id }}">
+                <input type="number" name="quantity" value="1" min="1" style="width: 50px;">
+                <button type="submit" {% if product.quantity == 0 %}disabled{% endif %}>Add to Cart</button>
+            </form>
+        </div>
+        {% else %}
+        <p>No products available at the moment.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
